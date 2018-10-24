@@ -47,10 +47,10 @@ oc new-app https://raw.githubusercontent.com/AbrahamArellano/django-ex/master/op
 
 ## Special environment variables
 
-###NAMESPACE:
+### NAMESPACE:
 Define the Openshift namespace name where the installation is done
 
-###DOCKER_REGISTRY_SERVER_PORT: 
+### DOCKER_REGISTRY_SERVER_PORT: 
 Define the docker registry server and port using the following syntax [SERVER]:[PORT]. Is relevant to mention that those values should be provided by the cluster administrator or checking the description of the image after it is deployed in the namespace.
 
 
