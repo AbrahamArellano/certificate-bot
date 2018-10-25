@@ -53,8 +53,7 @@
           }
         },
         "source": {
-          "type": "Binary",
-          "binary": "{}"          
+          "type": "Binary"
         },
         "strategy": {
           "type": "Source",
