@@ -36,17 +36,23 @@ for route in route_list.items:
 	
 ## Patching route
 
+# Sample variables
+route_to_be_patched="mytestapp"
+newCaCertificate="MyPatchedCert"
+newKey="MyPatchedKey"
+
+# General structure of the route to be patched
 body = {
 
     'kind': 'Route',
 
     'apiVersion': 'v1',
 
-    'metadata': {'name': 'mytestapp'},
+    'metadata': {'name': route_to_be_patched},
 
     'spec': {
 
-        'tls': {'caCertificate': 'MyPatchedCert', 'key': 'MyPatchedKey'},
+        'tls': {'caCertificate': newCaCertificate, 'key': newKey},
 
     }
 
