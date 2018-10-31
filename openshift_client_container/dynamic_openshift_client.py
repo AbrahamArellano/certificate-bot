@@ -58,6 +58,16 @@ body = {
 
 }
 
+# Single patch
+v1_routes.patch(body=body, namespace=project_namespace)
+
+print("Route patched")
+
+
+## Multiple patches
+
+v1_lists = dyn_client.resources.get(api_version='route.openshift.io/v1', kind='List')
+
 # In case you want to use a list of routes
 body_list = {
     "kind": "List",
@@ -98,10 +108,6 @@ body_list = {
     ]
 }
 
-# Single patch
-v1_routes.patch(body=body, namespace=project_namespace)
-
 # Multiple patches
-v1_routes.patch(body=body_list, namespace=project_namespace)
+v1_lists.patch(body=body_list, namespace=project_namespace)
 
-print("Route patched")
