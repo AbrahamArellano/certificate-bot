@@ -31,3 +31,27 @@ for route in route_list.items:
 		if route.spec.tls.destinationCACert != None:
 			print("Destination CA Certificate: " + route.spec.tls.destinationCACert)
 	print("+++++++++++++++")
+	
+	
+	
+## Patching route
+
+body = {
+
+    'kind': 'Route',
+
+    'apiVersion': 'v1',
+
+    'metadata': {'name': 'mytestapp'},
+
+    'spec': {
+
+        'tls': {'caCertificate': 'MyPatchedCert', 'key': 'MyPatchedKey'},
+
+    }
+
+}
+
+v1_routes.patch(body=body, namespace=project_namespace)
+
+print("Route patched")
