@@ -58,6 +58,50 @@ body = {
 
 }
 
+# In case you want to use a list of routes
+body_list = {
+    "kind": "List",
+    "apiVersion": "v1",
+    "items": [
+        {
+            "kind": "Route",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "mytestapp"
+            },
+            "spec": {
+                "tls": {
+                    "termination": "edge",
+                    "certificate": "MyCertificate",
+                    "key": "MyPatchedKey",
+                    "caCertificate": "MyPatchedCert"
+                },
+                "wildcardPolicy": "None"
+            }
+        },
+        {
+            "kind": "Route",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "mytestapp2"
+            },
+            "spec": {
+                "tls": {
+                    "termination": "edge",
+                    "certificate": "MyCertificate",
+                    "key": "MyPatchedKey",
+                    "caCertificate": "MyPatchedCert"
+                },
+                "wildcardPolicy": "None"
+            }
+        }
+    ]
+}
+
+# Single patch
 v1_routes.patch(body=body, namespace=project_namespace)
+
+# Multiple patches
+v1_routes.patch(body=body_list, namespace=project_namespace)
 
 print("Route patched")
