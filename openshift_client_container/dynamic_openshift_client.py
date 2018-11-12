@@ -3,6 +3,8 @@ import yaml
 import openshift.config
 import openshift.client
 from openshift.dynamic import DynamicClient
+import time
+
 
 openshift.config.load_incluster_config()
 
@@ -63,4 +65,6 @@ v1_routes.patch(body=body, namespace=project_namespace)
 
 print("Route patched")
 
+print("Sleeping")
 
+time.sleep(500)
