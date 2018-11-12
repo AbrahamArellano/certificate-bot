@@ -100,7 +100,6 @@
         "name": "${NAME}"
       },
       "spec": {
-        "activeDeadlineSeconds": "300",
         "successfulJobsHistoryLimit": "3",
         "failedJobsHistoryLimit": "1",
         "schedule": "*/3 * * * *",
@@ -113,6 +112,7 @@
           "spec": {
             "template": {
               "spec": {
+                "activeDeadlineSeconds": "300",
                 "containers": [
                   {
                     "name": "certificate-watchdog",
